@@ -1,6 +1,16 @@
 import { css } from "styled-components";
 
 const mixins = {
+    flexCenter: css`
+    display: flex;
+    justfiy-content: center;
+    align-items: center;
+    `,
+    flexBetween: css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    `,
     button: css`
     position: relative;
     text-transform: uppercase;
