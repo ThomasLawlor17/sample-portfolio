@@ -52,7 +52,7 @@ export const Layout = ({children, location}: {children: JSX.Element, location: L
             <GlobalStyle/>
 
             <StyledContent>
-                <Nav/>
+                <Nav isHome={isHome}/>
                 <div id="content">
                     {children}
                     <Footer/>
