@@ -14,12 +14,10 @@ const StyledHeader = styled.header<HeaderProps>`
 position: fixed;
 top: 0;
 width: 100%;
-background-color: var(--black);
 padding-bottom: 15px;
 filter: none !important;
 pointer-events: auto !important;
 user-select: auto !important;
-backdrop-filter: blur(10px);
 transition: all 0.3s linear;
 
 ${props =>
@@ -27,6 +25,7 @@ ${props =>
     !props.$scrolledToTop &&
     css`
       transform: translateY(0px);
+      background-color: var(--black);
     `};
 
   ${props =>

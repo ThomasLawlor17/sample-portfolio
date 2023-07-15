@@ -14,10 +14,15 @@ const mixins = {
     button: css`
     position: relative;
     text-transform: uppercase;
+    font-family: 'Space Grotesk';
+    font-weight: 700;
+    font-size: 16px;
     line-height: 26px;
+    letter-spacing: 2.286px;
     height: 38px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background-image: linear-gradient(
         to right,
         var(--green) 50%,

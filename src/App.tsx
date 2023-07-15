@@ -6,7 +6,7 @@ import Contact from "./components/sections/Contact";
 import { styled } from "styled-components";
 
 const StyledMain = styled.main`
-
+padding-top: 198px;
 `
 
 
