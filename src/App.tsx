@@ -7,6 +7,13 @@ import { styled } from "styled-components";
 
 const StyledMain = styled.main`
 padding-top: 198px;
+
+@media (max-width: 769px) {
+  padding-top: 151px;
+}
+@media (max-width: 414px) {
+  padding-top: 423px;
+}
 `
 
 
