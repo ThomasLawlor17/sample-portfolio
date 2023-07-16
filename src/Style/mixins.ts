@@ -66,7 +66,7 @@ const mixins = {
         line-height: 26px;
         letter-spacing: -0.222px;
         text-transform: uppercase;
-
+        padding-left: 24px;
         &::placeholder {
             color: var(--white);
             opacity: 0.5;
@@ -107,6 +107,7 @@ const mixins = {
         font-weight: 500;
         line-height: 16px; /* 133.333% */
         letter-spacing: -0.167px;
+        text-transform: none;
     }
     svg {
         position: absolute;
