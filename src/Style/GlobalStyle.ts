@@ -85,7 +85,17 @@ html {
       line-height: 40px;
       letter-spacing: -1.136px;
     }
+    h2 {
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -1px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 26px;
+    }
   }
+
 
 
   button {
