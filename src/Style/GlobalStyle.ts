@@ -9,7 +9,8 @@ ${fonts};
 
 html {
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--black);
@@ -70,6 +71,20 @@ html {
     font-size: 18px;
     font-weight: 500;
     line-height: 28px; /* 155.556% */
+  }
+  @media (max-width: 769px) {
+    h1 {
+      font-size: 72px;
+      line-height: 72px;
+      letter-spacing: -2.045px;
+    }
+  }
+  @media (max-width: 414px) {
+    h1 {
+      font-size: 40px;
+      line-height: 40px;
+      letter-spacing: -1.136px;
+    }
   }
 
 
