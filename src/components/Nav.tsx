@@ -19,6 +19,7 @@ filter: none !important;
 pointer-events: auto !important;
 user-select: auto !important;
 transition: all 0.3s linear;
+z-index: 200;
 
 ${props =>
   props.$scrollDirection === 'up' &&
