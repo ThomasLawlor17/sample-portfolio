@@ -120,11 +120,9 @@ a {
             width: fit-content;
         }
     }
-}
+}`
 
-`
-
-export default function Projects() {
+export default function Projects({scrollToContact}: {scrollToContact: ()=>void}) {
 
     const revealTitle = useRef<HTMLHeadingElement>(null)
     const revealProjects = useRef<(HTMLDivElement | null)[]>([])
@@ -174,10 +172,10 @@ export default function Projects() {
     ]
 
   return (
-    <StyledSection>
+    <StyledSection id="projects">
         <header ref={revealTitle}>
             <h1>Projects</h1>
-            <button>Contact me</button>
+            <button onClick={scrollToContact}>Contact me</button>
         </header>
         <div className="grid">
             {projects.map((p, i) => (
