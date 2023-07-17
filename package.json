@@ -1,5 +1,6 @@
 {
   "name": "dev-portfolio",
+  "homepage": "https://thomaslawlor17.github.io/sample-portfolio/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
