@@ -59,18 +59,17 @@ svg {
     width: 20px;
     height: 20px;
   }
-}
-`
+}`
 
 export default function Footer() {
   return (
     <StyledFooter>
     <span>adamkeys</span>
     <StyledList>
-      <li><a href="/"><Icon name='github'/></a></li>
-      <li><a href="http://"><Icon name='frontend'/></a></li>
-      <li><a href="//"><Icon name='linkedin'/></a></li>
-      <li><a href="//"><Icon name='twitter'/></a></li>
+      <li><a href="https://github.com/"><Icon name='github'/></a></li>
+      <li><a href="https://www.frontendmentor.io/"><Icon name='frontend'/></a></li>
+      <li><a href="https://www.linkedin.com/"><Icon name='linkedin'/></a></li>
+      <li><a href="https://twitter.com/"><Icon name='twitter'/></a></li>
     </StyledList>
   </StyledFooter>
   )

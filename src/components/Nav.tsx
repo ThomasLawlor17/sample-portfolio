@@ -2,7 +2,6 @@ import { css, styled } from 'styled-components'
 import Icon from './icons/Icon'
 import { useEffect, useState } from 'react'
 import useScrollDirection from '../hooks/useScrollDirection'
-import { loaderDelay } from '../utils'
 
 interface HeaderProps {
   $scrollDirection: string;
@@ -165,10 +164,10 @@ export default function Nav({isHome}: {isHome: boolean}) {
       <StyledNav>
         <a id='logo' href="/">adamkeys</a>
         <StyledList isMounted={isMounted}>
-          <li><a href="/"><Icon name='github'/></a></li>
-          <li><a href="http://"><Icon name='frontend'/></a></li>
-          <li><a href="//"><Icon name='linkedin'/></a></li>
-          <li><a href="//"><Icon name='twitter'/></a></li>
+          <li><a href="https://github.com/"><Icon name='github'/></a></li>
+          <li><a href="https://www.frontendmentor.io/"><Icon name='frontend'/></a></li>
+          <li><a href="https://www.linkedin.com/"><Icon name='linkedin'/></a></li>
+          <li><a href="https://twitter.com/"><Icon name='twitter'/></a></li>
         </StyledList>
       </StyledNav>
     </StyledHeader>

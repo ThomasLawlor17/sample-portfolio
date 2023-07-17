@@ -130,20 +130,14 @@ export default function Contact() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
         if (!message.name) {
-            console.log('1')
             setError((error) => ({...error, name: 'Sorry, please enter a name'}));
         } if (!message.email) {
             setError(error => ({...error, email: 'Sorry, please enter an email'}))
-        } if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(message.email) && message.email) {
-            console.log(2)
-            console.log(error)
+        } if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(message.email) && message.email) {
 			setError((error) => ({...error, email: 'Sorry, invalid format here'}));
-            console.log(error)
 		} if (!message.message) {
-            console.log(3)
             setError((error) => ({...error, message: 'Sorry, please enter a message'}));
-        } if (message.name && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(message.email) && message.message) {
-			console.log(message);
+        } if (message.name && /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(message.email) && message.message) {
             setSent(true)
             setError({
                 name: '',
@@ -156,7 +150,7 @@ export default function Contact() {
                 message: ''
             })
 		} else {
-            console.log(error)
+            return
         }
     }
 
@@ -166,7 +160,7 @@ export default function Contact() {
         <div className="container">
         <header>
             <h1>Contact</h1>
-            <p>I would love to hear about your project and how I could help. Please fill in the form, and I’ll get back to you as soon as possible.</p>
+            <p>I would love to hear about your project and how I could help. Please fill in the form, and I	&apos;ll get back to you as soon as possible.</p>
         </header>
         <StyledForm onSubmit={handleSubmit} autoComplete="off" noValidate>
             <ul>
@@ -176,7 +170,7 @@ export default function Contact() {
                     <span>{error.name}</span>
                     <Icon name="error"/>
                 </li>
-                <li className={(error.email && !message.email) || (error.email && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(message.email)) ? 'error' : ''}>
+                <li className={(error.email && !message.email) || (error.email && !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(message.email)) ? 'error' : ''}>
                     <input id="email" type="email" placeholder="email" onChange={handleChange} value={message.email} name="email"/>
                     <label htmlFor="email"></label>
                     <span>{error.email}</span>
