@@ -1,4 +1,7 @@
 import { styled } from "styled-components"
+import sr from "../../utils/sr"
+import {srConfig} from '../../config'
+import { useEffect, useRef, useState } from "react"
 
 
 const StyledSection = styled.section`
@@ -123,8 +126,25 @@ a {
 
 export default function Projects() {
 
-    const width = window.innerWidth
+    const revealTitle = useRef<HTMLHeadingElement>(null)
+    const revealProjects = useRef<(HTMLDivElement | null)[]>([])
 
+    useEffect(() => {
+        sr?.reveal(revealTitle.current!, srConfig())
+        revealProjects.current.forEach((ref, i) => {
+            sr?.reveal(ref!, srConfig(i + 100))
+        })
+    }, [])
+    
+    const [width, setWidth] = useState(window.innerWidth)
+
+    useEffect(() => {
+      const handleResize = () => {
+        setWidth(window.innerWidth)
+      }
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
+    }, [])
 
     const projects = [
         {
@@ -153,16 +173,15 @@ export default function Projects() {
         }
     ]
 
-
   return (
     <StyledSection>
-        <header>
+        <header ref={revealTitle}>
             <h1>Projects</h1>
             <button>Contact me</button>
         </header>
         <div className="grid">
             {projects.map((p, i) => (
-                <StyledProject key={i}>
+                <StyledProject key={i} ref={(ref) => (revealProjects.current[i] = ref)}>
                     <div className="p-img" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/thumbnail-project-${i + 1}-large.webp)`}}>
                     {width >= 770 ? 
                     <>

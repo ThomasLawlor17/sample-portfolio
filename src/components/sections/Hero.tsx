@@ -1,11 +1,10 @@
 import { css, styled } from "styled-components"
 import Pattern from "../icons/Pattern"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-interface ContentProps {
-  width: number
+interface ListProps {
+  isMounted: boolean
 }
-
 
 const StyledSection = styled.section`
 display: flex;
@@ -59,7 +58,7 @@ gap: 72px;
 }
 `
 
-const StyledContent = styled.div<ContentProps>`
+const StyledContent = styled.div`
 display: flex;
 align-items: flex-start;
 flex-direction: column;
@@ -68,6 +67,7 @@ border-bottom: 1px inset var(--white);
 
 h1 {
   cursor: default;
+  animation: slide-appear-lr 1s linear;
   span {
     background-image: linear-gradient(
       to right,
@@ -103,10 +103,12 @@ p.about {
   width: 445px;
   color: var(--light-grey);
   margin-top: 37px;
+  animation: appear 1s linear;
 }
 button {
   ${({theme}) => theme.mixins.button};
   margin-top: 66px;
+  animation: slide-appear-du 1s linear;
 }
 
 
@@ -119,19 +121,15 @@ button {
   top: 0;
   right: 11.785714%;
   z-index: -1;
+  animation: slide-appear-rl 1s linear;
 
   svg {
     position: absolute;
     left: -64px;
     bottom: 70px;
+    animation: scale 1s linear;
   }
 }
-
-
-
-
-
-
 
 @media (max-width: 769px) {
   padding-bottom: 60px;
@@ -202,22 +200,49 @@ button {
 
 `
 
-const StyledList = styled.ul`
+const StyledList = styled.ul<ListProps>`
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(345px, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(auto, 345px));
 row-gap: 58px;
 
 li {
-
   p {
     color: var(--light-grey);
     padding-top: 14px;
   }
+  animation: slide-appear-du 1s linear;
+  &:nth-of-type(2) {
+    animation-delay: 0.33s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: 0.66s;
+  }
+  ${props => !props.isMounted ? css`
+  &:nth-of-type(2), &:nth-of-type(3) {
+    opacity: 0;
+  }` : ''}
+
+}
+@media (max-width: 769px) {
+  grid-template-columns: repeat(2, minmax(auto, 345px));
+  li {
+    width: 50%;
+    &:nth-of-type(4) {
+      animation-delay: 1s;
+    }
+    ${props => !props.isMounted ? css`
+    &:nth-of-type(4) {
+      opacity: 0;
+    }` : ''}
+  }
 }
 @media (max-width: 414px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding-bottom: 40px;
-  row-gap: 24px;
+  gap: 24px;
   li {
     p {
       padding-top: 0;
@@ -226,17 +251,23 @@ li {
 }
 `
 
-export default function Hero() {
+export default function Hero({isMounted}: {isMounted: boolean}) {
 
   const [width, setWidth] = useState(window.innerWidth)
 
-  console.log(width)
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth)
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
 
 
   return (
     <StyledSection>
-      <StyledContent width={width}>
+      <StyledContent>
       <h1>Nice to {width > 414 && width < 770 ? <br/> : ''}meet you!{width < 414 || width > 770 ? <br/> : ''} I'm <span>Adam&nbsp;Keys</span>.</h1>
       <p className="about">Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.</p>
       <button>Contact me</button>
@@ -244,7 +275,7 @@ export default function Hero() {
         <Pattern name='circle'/>
       </div>
       </StyledContent>
-        <StyledList>
+        <StyledList isMounted={isMounted}>
           <li><h2>HMTL</h2><p>4 Years Experience</p></li>
           <li><h2>CSS</h2><p>4 Years Experience</p></li>
           <li><h2>Javascript</h2><p>4 Years Experience</p></li>

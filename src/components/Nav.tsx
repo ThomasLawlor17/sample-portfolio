@@ -8,6 +8,9 @@ interface HeaderProps {
   $scrollDirection: string;
   $scrolledToTop: boolean;
 }
+interface ListProps {
+  isMounted: boolean
+}
 
 
 const StyledHeader = styled.header<HeaderProps>`
@@ -55,6 +58,7 @@ a {
   letter-spacing: -0.444px;
 
   &#logo {
+    animation: slide-appear-ud 1s linear;
     position: relative;
 
     &::after {
@@ -89,10 +93,28 @@ a {
   }
 }`
 
-const StyledList = styled.ul`
+const StyledList = styled.ul<ListProps>`
 ${({theme}) => theme.mixins.flexCenter}
 gap: 23px;
 padding-right: 30px;
+
+li {
+  animation: slide-appear-ud 1s linear;
+  &:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-of-type(3) {
+    animation-delay: 0.5s;
+  }
+  &:nth-of-type(4) {
+    animation-delay: 0.8s;
+  }
+  ${props => !props.isMounted ? css`
+  &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4) {
+    opacity: 0;
+  }
+  ` : ''}
+}
   
 svg {
   path {
@@ -127,7 +149,7 @@ export default function Nav({isHome}: {isHome: boolean}) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsMounted(true);
-    }, 100);
+    }, 1000);
 
     window.addEventListener('scroll', handleScroll);
 
@@ -137,16 +159,12 @@ export default function Nav({isHome}: {isHome: boolean}) {
     };
   }, []);
 
-  const timeout = isHome ? loaderDelay : 0;
-  const fadeClass = isHome ? 'fade' : '';
-  const fadeDownClass = isHome ? 'fadedown' : '';
-
 
   return (
     <StyledHeader $scrollDirection={scrollDirection} $scrolledToTop={scrolledToTop}>
       <StyledNav>
         <a id='logo' href="/">adamkeys</a>
-        <StyledList>
+        <StyledList isMounted={isMounted}>
           <li><a href="/"><Icon name='github'/></a></li>
           <li><a href="http://"><Icon name='frontend'/></a></li>
           <li><a href="//"><Icon name='linkedin'/></a></li>
