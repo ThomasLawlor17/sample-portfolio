@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/sample-portfolio/static/css/main.1b764901.css",
-    "main.js": "/sample-portfolio/static/js/main.7474c2cd.js",
+    "main.js": "/sample-portfolio/static/js/main.b84334b7.js",
     "static/media/SpaceGrotesk-VariableFont_wght.ttf": "/sample-portfolio/static/media/SpaceGrotesk-VariableFont_wght.1036357b9651eff7d3dd.ttf",
     "index.html": "/sample-portfolio/index.html",
     "main.1b764901.css.map": "/sample-portfolio/static/css/main.1b764901.css.map",
-    "main.7474c2cd.js.map": "/sample-portfolio/static/js/main.7474c2cd.js.map"
+    "main.b84334b7.js.map": "/sample-portfolio/static/js/main.b84334b7.js.map"
   },
   "entrypoints": [
     "static/css/main.1b764901.css",
-    "static/js/main.7474c2cd.js"
+    "static/js/main.b84334b7.js"
   ]
 }
