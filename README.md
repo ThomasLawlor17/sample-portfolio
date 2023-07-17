@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Frontend Mentor](https://your-solution-url.com)
-- Live Site URL: [GH-Pages](https://github.com/ThomasLawlor17/dev-portfolio)
+- Live Site URL: [GH-Pages](https://github.com/ThomasLawlor17/sample-portfolio)
 
 ## Built with
 

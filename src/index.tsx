@@ -11,8 +11,8 @@ root.render(
   <BrowserRouter>
   <React.StrictMode>
     <Routes>
-      <Route path='/' element={<App />}/>
-      <Route path='*' element={<Navigate to='/' replace />}/>
+      <Route path='/sample-portfolio' element={<App />}/>
+      <Route path='*' element={<Navigate to='/sample-portfolio' replace />}/>
     </Routes>
   </React.StrictMode>
   </BrowserRouter>
