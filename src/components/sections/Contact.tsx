@@ -16,6 +16,7 @@ background: var(--grey);
     gap: 20px;
     max-width: 1110px;
     padding-bottom: 92px;
+    margin: auto;
 }
 header {
     width: 445px;
