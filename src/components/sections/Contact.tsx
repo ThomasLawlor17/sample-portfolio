@@ -5,7 +5,7 @@ import Pattern from "../icons/Pattern"
 
 const StyledSection = styled.section`
 position: relative;
-padding: 84px 6.5% 171px;
+padding: 84px 11.5% 171px;
 width: 100%;
 background: var(--grey);
 

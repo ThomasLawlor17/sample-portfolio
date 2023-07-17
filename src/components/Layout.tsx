@@ -7,7 +7,7 @@ import { Location } from "../types";
 import { useEffect, useState } from "react";
 
 const StyledContent = styled.div`
-
+position: relative;
 
 
 `
