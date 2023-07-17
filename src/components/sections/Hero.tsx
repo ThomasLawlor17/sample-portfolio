@@ -268,7 +268,7 @@ export default function Hero({isMounted, scrollToContact}: {isMounted: boolean, 
   return (
     <StyledSection id="hero">
       <StyledContent>
-      <h1>Nice to {width > 414 && width < 770 ? <br/> : ''}meet you!{width < 414 || width > 770 ? <br/> : ''} I'm <span>Adam&nbsp;Keys</span>.</h1>
+      <h1>Nice to {width > 414 && width < 770 ? <br/> : ''}meet you!{width < 414 || width > 770 ? <br/> : ''} I'm <span>Adam&nbsp;Keyes</span>.</h1>
       <p className="about">Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.</p>
       <button onClick={scrollToContact}>Contact me</button>
       <div className="img">

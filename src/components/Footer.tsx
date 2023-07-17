@@ -64,7 +64,7 @@ svg {
 export default function Footer() {
   return (
     <StyledFooter>
-    <span>adamkeys</span>
+    <span>adamkeyes</span>
     <StyledList>
       <li><a href="https://github.com/"><Icon name='github'/></a></li>
       <li><a href="https://www.frontendmentor.io/"><Icon name='frontend'/></a></li>
