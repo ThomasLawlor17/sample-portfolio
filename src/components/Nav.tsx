@@ -162,12 +162,12 @@ export default function Nav({isHome}: {isHome: boolean}) {
   return (
     <StyledHeader $scrollDirection={scrollDirection} $scrolledToTop={scrolledToTop}>
       <StyledNav>
-        <a id='logo' href="/">adamkeyes</a>
+        <a id='logo' href="/" aria-label='home'>adamkeyes</a>
         <StyledList isMounted={isMounted}>
-          <li><a href="https://github.com/"><Icon name='github'/></a></li>
-          <li><a href="https://www.frontendmentor.io/"><Icon name='frontend'/></a></li>
-          <li><a href="https://www.linkedin.com/"><Icon name='linkedin'/></a></li>
-          <li><a href="https://twitter.com/"><Icon name='twitter'/></a></li>
+          <li><a href="https://github.com/" aria-label='github'><Icon name='github'/></a></li>
+          <li><a href="https://www.frontendmentor.io/" aria-label='frontend mentor'><Icon name='frontend'/></a></li>
+          <li><a href="https://www.linkedin.com/" aria-label='linkedin'><Icon name='linkedin'/></a></li>
+          <li><a href="https://twitter.com/" aria-label='twitter'><Icon name='twitter'/></a></li>
         </StyledList>
       </StyledNav>
     </StyledHeader>
