@@ -4,7 +4,7 @@ import Hero from "./components/sections/Hero";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import { styled } from "styled-components";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const StyledMain = styled.main`
 padding-top: 198px;
