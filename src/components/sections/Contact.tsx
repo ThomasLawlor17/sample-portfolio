@@ -162,7 +162,7 @@ export default function Contact() {
 
 
   return (
-    <StyledSection>
+    <StyledSection id="contact">
         <div className="container">
         <header>
             <h1>Contact</h1>

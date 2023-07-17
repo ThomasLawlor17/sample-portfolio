@@ -4,7 +4,7 @@ import Hero from "./components/sections/Hero";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import { styled } from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const StyledMain = styled.main`
 padding-top: 198px;
@@ -37,12 +37,18 @@ const App = () => {
     }
   }, [isMounted])
 
+  const scrollToContact = () => {
+    const contact = document.getElementById('contact')
+    contact?.scrollIntoView({behavior: 'smooth'})
+  }
+
+
   return (
     <>
     <Layout location={location}>
       <StyledMain>
-      <Hero isMounted={isMounted}/>
-      <Projects/>
+      <Hero isMounted={isMounted} scrollToContact={scrollToContact}/>
+      <Projects scrollToContact={scrollToContact}/>
       <Contact/>
       </StyledMain>
     </Layout>

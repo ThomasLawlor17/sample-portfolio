@@ -251,7 +251,7 @@ li {
 }
 `
 
-export default function Hero({isMounted}: {isMounted: boolean}) {
+export default function Hero({isMounted, scrollToContact}: {isMounted: boolean, scrollToContact: ()=>void}) {
 
   const [width, setWidth] = useState(window.innerWidth)
 
@@ -266,11 +266,11 @@ export default function Hero({isMounted}: {isMounted: boolean}) {
 
 
   return (
-    <StyledSection>
+    <StyledSection id="hero">
       <StyledContent>
       <h1>Nice to {width > 414 && width < 770 ? <br/> : ''}meet you!{width < 414 || width > 770 ? <br/> : ''} I'm <span>Adam&nbsp;Keys</span>.</h1>
       <p className="about">Based in the UK, I’m a front-end developer passionate about building accessible web apps that users love.</p>
-      <button>Contact me</button>
+      <button onClick={scrollToContact}>Contact me</button>
       <div className="img">
         <Pattern name='circle'/>
       </div>
