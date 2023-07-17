@@ -115,6 +115,60 @@ html {
   a {
     text-decoration: none;
   }
+
+  @keyframes scale {
+    from {scale: 0};
+    to {scale: 1};
+  }
+  @keyframes slide-appear-lr {
+    from {
+      transform: translateX(-40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-appear-rl {
+    from {
+      transform: translateX(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-appear-du {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-appear-ud {
+    from {
+      transform: translateY(-40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
 `
 
 export default GlobalStyle
